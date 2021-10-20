@@ -1,0 +1,19 @@
+version: '3.2'
+
+services:
+  academy-web:
+    build:
+      context: .
+      dockerfile: front.dockerfile
+    image: academy/front:web
+    ports: 
+      - "80:4200"
+    container_name: academy_web
+    volumes: 
+      - ./data/nginx:/etc/nginx/conf.d/
+    networks:
+      - academynet
+
+
+networks:
+ academynet:

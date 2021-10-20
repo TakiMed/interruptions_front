@@ -1,0 +1,55 @@
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Kreiran</th>
+            <th>Aktivan</th>
+            <th>Akcije</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.lastName }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.createdAt }}</td>
+            <td>{{ user.active }}</td>
+            <td>
+                <a class="glyphicon glyphicon-th" 
+                style="margin-right: 10px;"
+                (click)="onShowModal(user.roles)"></a>
+                <a class="glyphicon glyphicon-pencil"
+                style="margin-right: 10px;"></a>
+                <a class="glyphicon glyphicon-remove"></a>
+            </td>
+        </tr>
+      </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal" [ngClass]="{'show': showModal}" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+          <h4>Role korisnika</h4>
+          <ul *ngFor = "let role of roles">
+              <li>id: {{role.id}}</li>
+              <li>naziv: {{role.name}}</li>
+              <li>opis prava: {{ role.description }}</li>
+          </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" 
+        class="btn btn-default" 
+        data-dismiss="modal"
+        (click)="onCloseModal()">Zatvori</button>
+      </div>
+    </div>
+  </div>
+</div>

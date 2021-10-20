@@ -1,0 +1,31 @@
+.search{
+    background-image: url("../../../assets/transformers-547355_1920.jpg");
+    background-color: #cccccc;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:30rem
+}
+
+h1, h3{
+    margin-top:30px;
+    color: rgb(241, 236, 202);
+    font-weight: 700;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.row .search{
+    flex: 50%;
+}
+
+th{
+    text-align: center;
+}
+
+.form-inline .form-group .btn{
+    margin-left: 20px;
+}

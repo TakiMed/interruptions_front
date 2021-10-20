@@ -1,0 +1,32 @@
+<div>
+    <div class="row">
+        <!-- User management-->
+        <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <div class="caption">
+            <h3>Korisnici</h3>
+            <p>Upravljanje korisnicima</p>
+            <p><a routerLink = "/admin/user"
+                class="btn btn-primary" 
+                role="button">Pregled</a></p>
+            </div>
+        </div>
+        </div>
+        <!-- Role management-->
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+            <div class="caption">
+                <h3>Role</h3>
+                <p>Upravljanje rolama</p>
+                <p><a routerLink="/admin/role" 
+                    class="btn btn-primary" 
+                    role="button">Pregled</a></p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <hr class="divider"/>
+    <!-- Routing-->
+    <router-outlet></router-outlet>
+
+</div>
