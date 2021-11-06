@@ -8,10 +8,10 @@ import { PublisherService } from "../shared/publisher.service";
 })
 export class HeaderComponent implements OnInit {
     links: any[] = [
-        {name: "Pocetna ", route: "home"},
+        {name: "Početna ", route: "home"},
         {name: "Prekidi", route: "interruption-list"},
         {name: "Trafostanice", route: "substation"},
-        {name: "O meni", route: "contact"},
+   //     {name: "O meni", route: "contact"},
         {name: "Motivacija ", route: "notes"},
         
     ];
@@ -19,7 +19,6 @@ export class HeaderComponent implements OnInit {
     toggleDropdown: boolean = false;
     loginActivePage: boolean = false;
     constructor( private publisherService : PublisherService ){
-
     }
     ngOnInit(): void {
         this.publisherService.eventEmitter.subscribe(

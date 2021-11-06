@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { AdminComponent } from "./admin/admin.component";
 import { RoleComponent } from "./admin/role/role.component";
@@ -20,10 +21,10 @@ import { SubstationComponent } from "./substation/substation.component";
 const routes: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'contact', component: ContactComponent,
-      data: {isPreviewAvailable: true, role: 'ROLE_ADMIN',
-            redirectPreviewNotAvailableTo: 'home'
-            }, // staticki podaci
-      canActivate: [PreviewGuard]
+   //   data: {isPreviewAvailable: true, role: 'ROLE_ADMIN',
+    //        redirectPreviewNotAvailableTo: 'home'
+     //       }, // staticki podaci
+      //canActivate: [PreviewGuard]
     },
     { path: 'notes', component: NotesComponent},
     { path: 'role', component: RoleComponent},
@@ -47,7 +48,9 @@ const routes: Routes = [
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+      RouterModule.forRoot(routes),
+    ],
     exports: [RouterModule]
 })
 export class AppRoutingModule{

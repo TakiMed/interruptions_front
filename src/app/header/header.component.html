@@ -1,33 +1,46 @@
-<nav class="navbar navbar-default" *ngIf="!loginActivePage">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Logate 2021</a>
-      </div>
-  
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav" *ngFor = "let link of links">
-          <li><a routerLink="{{link.route}}">{{link.name}}</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown" [ngClass]="{'open': toggleDropdown}" (click) ="toggleDropdownValue()" >
-            <a class="dropdown-toggle" data-toggle="modal" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a routerLink="/admin">Administracija</a></li>
+<nav class="navbar" role="navigation" aria-label="main navigation" *ngIf="!loginActivePage">
+  <div class="navbar-brand">
+    <a class="navbar-item" href=#>
+      <img src="../../assets/OTTApp-1.png" width="30" height="30">
+    </a>
+  </div>
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" routerLink = "/home">
+        Home
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown" >
+            <ul *ngFor = "let link of links">
+              <a class="navbar-item" routerLink="{{ link.route }}">{{link.name}}</a>
             </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="dropdown is-hoverable">
+          <div class="dropdown-trigger">
+            <button class="button is-primary" aria-haspopup="true" aria-controls="dropdown-menu"
+            (click) ="toggleDropdownValue()">
+              <strong>Administracija</strong>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+              <a routerLink = "/admin">O korisnicima i rolama</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
